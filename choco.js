@@ -32,9 +32,9 @@ const { kyun, clockString, fetchJson, fetchText, jsonformat, randomNomor, sleep,
 const { color, bgcolor } = require("./lib/color")
 
 const ownerNumber = ["62882250664733@s.whatsapp.net","6283894905341@s.whatsapp.net"]
-const imgRzx3d = fs.readFileSync('/sdcard/Download/rzxbot3d.jpg')
-const imgRzxneon = fs.readFileSync('/sdcard/Download/rzxbotneon.jpg')
-const imgRzxtw = fs.readFileSync('/sdcard/Download/rzxbottw.jpg')
+const imgRzx3d = fs.readFileSync('./media/rzxbot3d.jpg')
+const imgRzxneon = fs.readFileSync('./media/rzxbotneon.jpg')
+const imgRzxtw = fs.readFileSync('./media/rzxbottw.jpg')
 
 module.exports = async(sock, msg, m) => {
 	try {
