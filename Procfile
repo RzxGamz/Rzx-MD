@@ -1,1 +1,1 @@
-worker : npm install && npm i @adiwajshing/baileys#multi-device && npm start
+worker : npm install && npm i @adiwajshing/baileys#multi-device
