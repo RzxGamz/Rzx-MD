@@ -1,0 +1,12 @@
+{
+  "name": "RzxBot-MD",
+  "description": "WhatsApp Bot Multi Device",
+  "repository": "https://github.com/RzxGamz/Rzx-MD",
+  "logo": "https://node-js-sample.herokuapp.com/node.png",
+  "keywords": [
+    "bot",
+    "whatsapp",
+    "multi-device",
+    "whatsapp-bot"
+  ]
+}
