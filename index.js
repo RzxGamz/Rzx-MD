@@ -1,9 +1,13 @@
 const P = require("pino")
 const fs = require('fs')
 const fetch = require('node-fetch')
-const { default: makeWASocket, generateWAMessageFromContent, DisconnectReason, AnyMessageContent, relayMessage, delay, useSingleFileAuthState } = require('@adiwajshing/baileys-md')
-
-const { state, saveState } = useSingleFileAuthState('./auth_info_multi.json')
+const { default: makeWASocket, generateWAMessageFromContent, DisconnectReason, AnyMessageContent, relayMessage, delay, useSingleFileAuthState, makeInMemoryStore } = require('@adiwajshing/baileys-md')
+const store = makeInMemoryStore({ logger: P().child({ level: 'silent', stream: 'store' }) })
+store.readFromFile('./baileys-md.json')
+setInterval(() => {
+	store.writeToFile('./baileys-md.json')
+}, 10_000)
+const { state, saveState } = useSingleFileAuthState('./session-md.json')
 
 // start a connection
 const startSock = () => {
@@ -15,6 +19,8 @@ const startSock = () => {
         auth: state
     })
     
+    store.bind(sock.ev)
+
     sock.ev.on('messages.upsert', async m => {
         //console.log(JSON.stringify(m, undefined, 2))
         
